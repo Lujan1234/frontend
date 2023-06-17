@@ -1,0 +1,125 @@
+.form{
+    max-width: 450px;
+    width: 100%;
+    height: 87.8%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap:4rem;
+}
+.logo .logo__img{
+    width:150px;
+    margin: 2.5rem 0rem 0rem 2.5rem;
+}
+.form__title{
+    margin-top: 8rem;
+    /* margin-bottom: 1rem; */
+}
+.form__heading{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--black-color);
+}
+/* .form__icon{
+    position: sticky;
+    top: 20%;
+    bottom: 10%;
+    left:100%;
+    transform: translateY(-50%);
+    color: var(--white-color);
+    font-size: 1.5rem;
+} */
+.input__wrap{
+    position: relative;
+    /* height: 37px; */
+    margin-bottom: 2.5rem;
+}
+.input__wrap:nth-child(2){
+    margin-bottom: 1.5rem;
+}
+.input__wrap:nth-child(3), .forgot__link{
+    text-align: right;
+    color: var(--sidebar-color);
+    margin-bottom: 2.5rem;
+}
+.input__wrap:nth-child(4){
+    margin-bottom: 1.3rem;
+}
+.input__field{
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    display: block;
+    border-bottom: 1px solid var(--black-color);
+    padding: 10px 20px 5px 0;
+    color:var(--grey-color);
+    font-size: 1rem;
+}
+input:focus{
+    outline: none;
+    color:var(--black-color);
+}
+.label__field{
+    color:var(--black-color);
+    position: absolute;
+    font-size: 1rem;
+    bottom:0;
+    left:0;
+    top:10px;
+    transition: 0.5s ease all;
+    pointer-events: none;
+}
+input:focus~.label__field,
+input:not(:placeholder-shown)~.label__field{
+    top:-14px;
+    font-size: 0.75rem;
+    color:var(--sidebar-color);
+}
+.btn__acceses{
+    background-color: var(--sidebar-color);
+    color: var(--white-color);
+    border: none;
+    border-radius:10px;
+    outline: none;
+    padding: 0.8rem 1.5rem;
+    display: inline-block;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    margin:0 auto;
+    cursor:pointer;
+}
+.form__text{
+    text-align:center;
+    color:var(--black-color);
+}
+.form__text a{
+    color:var(--sidebar-color);
+    font-weight: 600;
+}
+/* .input__wrap{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.input__wrap::before{
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom: 0;
+    position: absolute;
+    transition: 0.3s ease width;
+} */
+.invalid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: #ff4747;
+    font-size: 12px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 0.5rem;
+  }

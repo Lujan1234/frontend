@@ -1,0 +1,135 @@
+<div class="logo">
+  <img src="assets/img/logov3.png" alt="logo" class="logo__img" />
+</div>
+<div
+  class="register__container animate__animated animate__fadeIn animate__faster"
+>
+  <!-- <app-progressbar></app-progressbar> -->
+  
+  <form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()" >
+    <div class="form__heading">
+      <p class="form__title">¡Bienvenido!</p>
+      <p class="form__subtitle">Ingresa la información de tú cuenta.</p>
+    </div>
+    <div class="form__sign-up">
+      <div class="input__wrap">
+        <input type="text" formControlName="nombre" id="nombre" class="input__field" placeholder="Nombre completo"/>
+        <span *ngIf="isValid('nombre')" class="invalid">{{getFieldError('nombre')}}</span>
+      </div>
+      <div class="input__wrap">
+        <input type="text" formControlName="apellidoPa" id="apeMaterno" class="input__field" placeholder="Apellido paterno" />
+        <span *ngIf="isValid('apellidoPa')" class="invalid">{{getFieldError('apellidoPa')}}</span>
+      </div>
+      <div class="input__wrap">
+        <input
+          type="text"
+          formControlName="apellidoMa"
+      
+          id="apePaterno"
+          class="input__field"
+          placeholder="Apellido materno"
+        />
+        <span *ngIf="isValid('apellidoMa')" class="invalid">{{getFieldError('apellidoMa')}}</span>
+      </div>
+      <div class="input__wrap">
+        <input type="text" formControlName="dni" id="dni" class="input__field" placeholder="DNI"/>
+          <span *ngIf="isValid('dni')" class="invalid">{{getFieldError('dni')}}</span>
+      </div>
+      
+      <div class="input__wrap">
+        <input type="text" formControlName="telefono"   id="telefono" class="input__field" placeholder="Telefono de contacto" />
+        
+          <span *ngIf="isValid('telefono')" class="invalid">{{getFieldError('telefono')}}</span>
+      
+      </div>
+      <div class="input__wrap">
+        <input type="email" formControlName="correo" id="correo" class="input__field" placeholder="Correo electronico" />
+          <span *ngIf="isValid('correo')" class="invalid">{{getFieldError('correo')}}</span>
+      </div>
+      <div class="input__wrap">
+        <input  type="text" formControlName="username"   id="username" class="input__field" placeholder="Nombre de usuario" />
+        <span *ngIf="isValid('username')" class="invalid">{{getFieldError('username')}}</span>
+      </div>
+      <div class="input__wrap">
+        <input type="password" formControlName="password" id="contrasena" class="input__field" placeholder="Contraseña" />
+          <span *ngIf="isValid('password')" class="invalid">{{getFieldError('password')}}</span>
+      </div>
+      
+      <div class="valid__contraseña">
+        <i class="bx bxs-error"></i>
+        <p>
+          Por su seguridad , tú contraseña debe contener al menos una mayúscula,
+          una minúscula y un número.
+        </p>
+      </div>
+    </div>
+    <div class="input__button">
+      <a class="btn__back" (click)="previus()">Atras</a>
+      <!-- <a class="btn btn__access" *ngIf="step !== 2 && step < 3" (click)="next()"
+        >Siguiente</a
+      > -->
+      <button type="submit" class="btn__access">Registrarse</button>
+    </div>
+  </form>
+ 
+</div>
+
+<!-- <div class="form__selectión-btn" *ngIf="step === 2">
+      <div class="form__heading">
+        <p class="form__title">¿Que tipo de cuenta necesitas?</p>
+        <p class="form__subtitle">Seleccionael tipo de perfil.</p>
+      </div>
+      <div class="btn__group">
+        <button type="button" class="btn__company btn-style" (click)="setRole('empresa')">
+          <p>
+          Cuenta Empresa
+         </p>
+          <i class='bx bx-building-house'></i>
+          
+        </button>
+        <button type="button" class="btn__capitalist btn-style" (click)="setRole('inversionista')">
+          <i class="bx bxs-bar-chart-alt-2 icon"></i>
+          <p>
+           Cuenta Inversionista
+          </p>
+        </button>
+
+      </div>
+    </div>
+    <div class="form__selectión-btn" *ngIf="step === 3 && roles === 'empresa'">
+      <div class="form__heading">
+        <p class="form__title">Cuenta Empresa</p>
+        <p class="form__subtitle">Completa los siguientes datos:</p>
+      </div>
+      <div class="input__wrap">
+        <input
+          type="text"
+          id="ruc"
+          class="input__field"
+        />
+        <label for="telefono" class="label__field">RUC</label>
+      </div>
+      <div class="input__wrap">
+        <input
+          type="text"
+          id="razonSocial"
+
+          class="input__field"
+        />
+        <label for="correo" class="label__field">Razon social</label>
+      </div>
+    </div>
+    <div class="form__selectión-btn" *ngIf="step === 3 && roles === 'inversionista'">
+      <div class="form__heading">
+        <p class="form__title">Cuenta Inversionista</p>
+        <p class="form__subtitle">Completa los siguientes datos:</p>
+      </div>
+      <div class="input__wrap">
+        <input
+          type="text"
+          id="dni"
+          class="input__field"
+        />
+        <label for="telefono" class="label__field">DNI</label>
+      </div>
+    </div> -->

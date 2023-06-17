@@ -1,0 +1,53 @@
+<section class="wallet" *ngIf="mostrarLista">
+    <div class="wallet__container" >
+        <div class="wallet__box">
+            <div>
+                <span class="wallet__saldo">Saldo: {{objSaldo.saldo  |  currency:'PEN&nbsp;':'symbol-narrow' }}</span>
+                <span></span>
+            </div>
+            <div class="wallet__btn">
+                <button type="button" class="deposit" (click)="mostrarFormularioDeposito()" >Deposito</button>
+                <button type="button" class="withdraw" (click)="mostrarFormularioRetiro()">Retiro</button>
+            </div>
+        </div>
+        <div class="listar__content">
+            <div class="listar__content-table">
+                <table class="listar__table">
+                    <thead class="listar__thead">
+                        <tr>
+                            <!-- <th>#</th> -->
+                            <th>Fecha y Hora</th>
+                            <th>Transacción</th>
+                            <th>Monto</th>
+                            <!-- <th>Estado</th> -->
+                        </tr>
+                    </thead>
+                    <tbody class="listar__tbody">
+                        <tr *ngFor="let trans of transaccion">
+                            <!-- <td>{{trans.idTransaccion}}</td> -->
+                            <td>{{trans.fecha}}</td>
+                            <td>
+                                <span *ngIf="trans.tipoTransaccion?.tipo === 'Retiro'"><i class='bx bx-down-arrow-alt down'></i></span>
+                                <span *ngIf="trans.tipoTransaccion?.tipo === 'Deposito'"><i class='bx bx-up-arrow-alt up'></i></span>
+                                {{trans.tipoTransaccion!.tipo}}
+                            </td>
+                            <td [ngClass]="{'retiro': trans.tipoTransaccion?.tipo === 'Retiro', 'deposito': trans.tipoTransaccion?.tipo=== 'Deposito'}">
+                                {{trans.tipoTransaccion?.tipo === 'Retiro' ? '-' : '+'}} {{trans.monto | currency:'S/.&nbsp;':'symbol-narrow'}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+       
+    </div>
+</section>
+
+
+<div *ngIf="formularioActivo ==='deposito'" class="transaccion__deposito">
+    <app-deposito (depositoCompletado)=" finalizarTransaccion()"></app-deposito>
+</div>
+<div *ngIf="formularioActivo === 'retiro'" class="transaccion__retiro">
+    <app-retiro (retiroCompletado)="finalizarTransaccion()"></app-retiro>
+</div>

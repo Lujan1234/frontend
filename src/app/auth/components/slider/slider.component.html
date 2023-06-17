@@ -1,0 +1,15 @@
+
+<div *ngIf="sliders && sliders.length > 0" class="slide__wrapper " >
+    <img class="animate__animated animate__fadeIn animete_slow" *ngFor="let image of sliders; let i = index" [src]="image.url" [alt]="image.urlAlt"
+        [ngClass]="{'active':currentSlide === i}">
+</div>
+
+<div class="text__wrap">
+    <div *ngIf="text" class="text__content">
+        <p *ngFor="let textSlide of sliders; let i = index" [ngClass]="{'active':currentSlide === i}">{{textSlide.text}}</p>
+    </div>
+</div>
+<div *ngIf="indicadores" class="slider__bullets">
+    <span *ngFor="let dot of sliders; let i = index" [ngClass]="{'active':currentSlide === i}" (click)="selectImage(i)">
+    </span>
+</div>
